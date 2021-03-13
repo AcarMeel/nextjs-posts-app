@@ -1,0 +1,20 @@
+.formContent {
+  border: 2px solid #979494;
+  border-radius: 5px;
+  font-family: var(--default-font);
+  font-size: 1.4em;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  min-height: 6em;
+  resize: none;
+  width: 100%;
+}
+
+.formButton {
+  background: #533be7;
+  border-radius: 5px;
+  color: white;
+  border: 0;
+  padding: 0.6em 1em;
+  font-size: 1.1em;
+}
