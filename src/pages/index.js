@@ -2,15 +2,29 @@ import Head from "next/head";
 import Bio from "../components/Bio/Bio";
 import Post from "../components/Post/Post";
 import PostForm from "../components/PostForm/PostForm";
+import { useAuth } from "../hooks/useAuth";
 import styles from "../styles/Home.module.scss";
 
 export default function Home() {
+  const { user, logIn, logOut } = useAuth();
   return (
     <div className={styles.container}>
       <Head>
         <title>My Posts</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {!user && (
+        <p>
+          <button onClick={logIn}>Log in</button>
+        </p>
+      )}
+
+      {user && (
+        <p>
+          <button onClick={logOut}>Log out</button>
+        </p>
+      )}
 
       <main className={styles.main}>
         <Bio
@@ -39,7 +53,7 @@ export default function Home() {
             />
           </li>
         </ul>
-        <PostForm />
+        {user && <PostForm />}
       </main>
     </div>
   );
